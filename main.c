@@ -1,209 +1,192 @@
-// 1. Create and call a function
+// 1. Access a structure
 
 #include <stdio.h>
 
-// Create a function
-void myFunction() {
-  printf("I just got executed!");
-}
+// Create a structure called myStructure
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
 
 int main() {
-  myFunction(); // call the function
+  // Create a structure variable of myStructure called s1
+  struct myStructure s1;
+
+  // Assign values to members of s1
+  s1.myNum = 13;
+  s1.myLetter = 'B';
+
+  // Print values
+  printf("My number: %d\n", s1.myNum);
+  printf("My letter: %c\n", s1.myLetter);
+
   return 0;
 }
 
 
 
-// 2. Call a function multiple times
+// 2. Create multiple structure variables with different values
 
 #include <stdio.h>
 
-// Create a function
-void myFunction() {
-  printf("I just got executed!\n");
-}
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
 
 int main() {
-  myFunction(); // call the function
-  myFunction(); // call the function
-  myFunction(); // call the function
+  // Create different struct variables
+  struct myStructure s1;
+  struct myStructure s2;
+
+  // Assign values to different struct variables
+  s1.myNum = 13;
+  s1.myLetter = 'B';
+
+  s2.myNum = 20;
+  s2.myLetter = 'C';
+
+  // Print values
+  printf("s1 number: %d\n", s1.myNum);
+  printf("s1 letter: %c\n", s1.myLetter);
+
+  printf("s2 number: %d\n", s2.myNum);
+  printf("s2 letter: %c\n", s2.myLetter);
+
   return 0;
 }
 
 
 
-// 3. Function declaration and definition
+
+// 3. String in structure
 
 #include <stdio.h>
+#include <string.h>
 
-// Function declaration
-void myFunction();
-
-// The main function
-int main() {
-  myFunction();  // call the function
-  return 0;
-}
-
-// Function definition
-void myFunction() {
-  printf("I just got executed!");
-}
-
-
-
-// 4. Parameters and arguments
-
-#include <stdio.h>
-
-void myFunction(char name[]) {
-  printf("Hello %s\n", name);
-}
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];  // String
+};
 
 int main() {
-  myFunction("Liam");
-  myFunction("Jenny");
-  myFunction("Anja");
+  struct myStructure s1;
+
+  // Assign a value to the string using the strcpy function
+  strcpy(s1.myString, "Some text");
+
+  // Print the value
+  printf("My string: %s", s1.myString);
+
   return 0;
 }
 
 
 
-// 5. Multiple parameters
+// 4. Simpler Syntax (shorthand)
 
 #include <stdio.h>
 
-void myFunction(char name[], int age) {
-  printf("Hello %s. You are %d years old\n", name, age);
-}
+// Create a structure
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];
+};
 
 int main() {
-  myFunction("Liam", 3);
-  myFunction("Jenny", 14);
-  myFunction("Anja", 30);
+  // Create a structure variable and assign values to it
+  struct myStructure s1 = {13, 'B', "Some text"};
+
+  // Print values
+  printf("%d %c %s", s1.myNum, s1.myLetter, s1.myString);
+
   return 0;
 }
 
 
 
-// 6. Pass arrays as function parameters
+// 5. Copy structure values
 
 #include <stdio.h>
 
-void myFunction(int myNumbers[5]) {
-  for (int i = 0; i < 5; i++) {
-    printf("%d\n", myNumbers[i]);
-  }
-}
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];
+};
 
 int main() {
-  int myNumbers[5] = {10, 20, 30, 40, 50};  
-  myFunction(myNumbers);
+  // Create a structure variable and assign values to it
+  struct myStructure s1 = {13, 'B', "Some text"};
+  
+  // Create another structure variable
+  struct myStructure s2;
+  
+  // Copy s1 values to s2
+  s2 = s1;
+
+  // Print values
+  printf("%d %c %s", s2.myNum, s2.myLetter, s2.myString);
+
   return 0;
 }
 
 
 
-// 7. Return value
+// 6. Modify values
 
 #include <stdio.h>
+#include <string.h>
 
-int myFunction(int x) {
-  return 5 + x;
-}
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];
+};
 
 int main() {
-  printf("Result is: %d", myFunction(3));
+  // Create a structure variable and assign values to it
+  struct myStructure s1 = {13, 'B', "Some text"};
+
+  // Create another structure variable
+  struct myStructure s2;
+
+  // Copy s1 values to s2
+  s2 = s1;
+
+  // Change s2 values
+  s2.myNum = 30;
+  s2.myLetter = 'C';
+  strcpy(s2.myString, "Something else");
+
+  // Print values
+  printf("%d %c %s\n", s1.myNum, s1.myLetter, s1.myString);
+  printf("%d %c %s\n", s2.myNum, s2.myLetter, s2.myString);
   return 0;
 }
 
 
 
-// 8. Return the sum of two parameters
+// 7. Real Life Example
 
 #include <stdio.h>
 
-int myFunction(int x, int y) {
-  return x + y;
-}
+struct Car {
+  char brand[30];
+  char model[30];
+  int year;
+};
 
 int main() {
-  printf("Result is: %d", myFunction(5, 3));
-  return 0;
-}
+  struct Car car1  = {"BMW", "X5", 1999};
+  struct Car car2  = {"Ford", "Mustang", 1969};
+  struct Car car3  = {"Toyota", "Corolla", 2011};
 
+  printf("%s %s %d\n", car1.brand, car1.model, car1.year);
+  printf("%s %s %d\n", car2.brand, car2.model, car2.year);
+  printf("%s %s %d\n", car3.brand, car3.model, car3.year);
 
-
-// 9. Local scope
-
-#include <stdio.h>
-
-void myFunction() {
-  // Local variable that belongs to myFunction
-  int x = 5;
-
-  // Print the variable x
-  printf("%d", x);
-}
-
-int main() {
-  myFunction();
-  return 0;
-}
-
-
-
-// 10. Global scope
-
-#include <stdio.h>
-
-// Global variable x
-int x = 5;
-
-void myFunction() {
-  // We can use x here
-  printf("%d\n", x);
-}
-
-int main() {
-  myFunction();
-
-  // We can also use x here
-  printf("%d\n", x);
-  return 0;
-}
-
-
-
-// 11. Recursion (make a function call itself)
-
-#include <stdio.h>
-
-int sum(int k);
-
-int main() {
-  int result = sum(10);
-  printf("%d", result);
-  return 0;
-}
-
-int sum(int k) {
-  if (k > 0) {
-    return k + sum(k - 1);
-  } else {
-    return 0;
-  }
-}
-
-
-
-
-// 12. Use a math function to get the square root of a number
-
-#include <stdio.h>
-#include <math.h>
-
-int main() {
-  printf("%f", sqrt(16));
   return 0;
 }
