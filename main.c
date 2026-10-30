@@ -1,88 +1,156 @@
-// 1. Create and access an array
+// 1. Create a string
 
 #include <stdio.h>
 
 int main() {
-  int myNumbers[] = {25, 50, 75, 100};
-  printf("%d", myNumbers[0]);
+  char greetings[] = "Hello World!";
+  printf("%s", greetings);
+ 
+  return 0;
+}
+
+
+// 2. Another way to create a string
+
+#include <stdio.h>
+
+int main() {
+  char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0'};
+  char greetings2[] = "Hello World!";
+  
+  printf("%s\n", greetings);
+  printf("%s\n", greetings2);
+  
+  return 0;
+}
+
+
+
+// 3. Access string characters
+
+#include <stdio.h>
+
+int main() {
+  char greetings[] = "Hello World!";
+  printf("%c", greetings[0]);
  
   return 0;
 }
 
 
 
-// 2. Change an array element
+// 4. Change string characters
 
 #include <stdio.h>
 
 int main() {
-  int myNumbers[] = {25, 50, 75, 100};
-  myNumbers[0] = 33;
+  char greetings[] = "Hello World!";
+  greetings[0] = 'J';
+  printf("%s", greetings);
 
-  printf("%d", myNumbers[0]);
- 
   return 0;
 }
 
 
 
-// 3. Loop through an array
+// 5. Loop through a string
 
 #include <stdio.h>
 
 int main() {
-  int myNumbers[] = {25, 50, 75, 100};
+  char carName[] = "Volvo";
   int i;
   
-  for (i = 0; i < 3; i++) {
-    printf("%d\n", myNumbers[i]);
+  for (i = 0; i < 4; ++i) {
+    printf("%c\n", carName[i]);
   }
+
+  return 0;
+}
+
+
+
+// 6. Special characters in a string
+
+#include <stdio.h>
+
+int main() {
+  char txt[] = "We are the so-called \"Vikings\" from the north.";
+  printf("%s", txt);
  
   return 0;
 }
 
 
 
-// 4. Two-dimensional array
+// 7. Get the length of a string
 
 #include <stdio.h>
-
+#include <string.h>
+ 
 int main() {
-  int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };
-  printf("%d", matrix[0][2]);
+  char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  printf("%zu", strlen(alphabet));
+  return 0;
+}
+
+
+
+// 8. Concatenate strings
+
+#include <stdio.h>
+#include <string.h>
+ 
+int main() {
+  char str1[20] = "Hello ";
+  char str2[] = "World!";
+ 
+  // Concatenate str2 to str1 (the result is stored in str1)
+  strcat(str1, str2);
+  
+  // Print str1
+  printf("%s", str1);
  
   return 0;
 }
 
 
 
-// 5. Change elements in a two-dimensional array
+// 9. Copy strings
 
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-  int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };
-  matrix[0][0] = 9;
-  printf("%d", matrix[0][0]);  // Now outputs 9 instead of 1
- 
+  char str1[20] = "Hello World!";
+  char str2[20];
+
+  // Copy str1 to str2
+  strcpy(str2, str1);
+
+  // Print str2
+  printf("%s", str2);
+  
   return 0;
 }
 
 
 
-// 6. Loop through a two-dimensional array
+// 10. Compare strings
 
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-  int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };
+  char str1[] = "Hello";
+  char str2[] = "Hello";
+  char str3[] = "Hi";
 
-  int i, j;
-  for (i = 0; i < 2; i++) {
-    for (j = 0; j < 3; j++) {
-      printf("%d\n", matrix[i][j]);
-    }
-  }
+  // Compare str1 and str2, and print the result
+  printf("%d\n", strcmp(str1, str2));
+  
+  // Compare str1 and str3, and print the result
+  printf("%d\n", strcmp(str1, str3));
   
   return 0;
 }
