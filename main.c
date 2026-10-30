@@ -1,57 +1,63 @@
-// 1. Create boolean variables
+// 1. The if statement
 
 #include <stdio.h>
-#include <stdbool.h>  // Import the boolean header file 
 
 int main() {
-  bool isProgrammingFun = true;
-  bool isFishTasty = false;
-  printf("%d\n", isProgrammingFun);  // Returns 1 (true)
-  printf("%d", isFishTasty);         // Returns 0 (false)
+  if (20 > 18) {
+    printf("20 is greater than 18");
+  }
   
   return 0;
 }
 
 
 
-// 2. Compare two values
+// 2. The else statement
 
 #include <stdio.h>
 
 int main() {
-  printf("%d", 10 > 9);  // Returns 1 (true) because 10 is greater than 9
+  int time = 20;
+  
+  if (time < 18) {
+    printf("Good day.");
+  } else {
+    printf("Good evening.");
+  }
   
   return 0;
 }
 
 
 
-// 3. Compare two variables
+// 3. The else if statement
 
 #include <stdio.h>
 
 int main() {
-  int x = 10;
-  int y = 9;
-  
-  printf("%d", x > y); // Returns 1 (true) because 10 is greater than 9
+  int time = 16;
+
+  if (time < 12) {
+    printf("Good morning.");
+  } else if (time < 18) {
+    printf("Good day.");
+  } else {
+    printf("Good evening.");
+  }
+
   return 0;
 }
 
 
 
-// 4. Compare two boolean variables
+// 4. Short hand if...else (Ternary Operator)
 
 #include <stdio.h>
-#include <stdbool.h>  // Import the boolean header file 
 
 int main() {
-  bool isHamburgerTasty = true;
-  bool isPizzaTasty = true;
-  printf("%d", isHamburgerTasty == isPizzaTasty);
+  int time = 20;
+  
+  (time < 18) ? printf("Good day.") : printf("Good evening.");
   
   return 0;
 }
-
-
-
