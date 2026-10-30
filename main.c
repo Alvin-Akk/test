@@ -1,63 +1,58 @@
-// 1. The if statement
+// 1. The switch statement
 
 #include <stdio.h>
 
 int main() {
-  if (20 > 18) {
-    printf("20 is greater than 18");
+  int day = 4;
+  
+  switch (day) {
+    case 1:
+      printf("Monday");
+      break;
+    case 2:
+      printf("Tuesday");
+      break;
+    case 3:
+      printf("Wednesday");
+      break;
+    case 4:
+      printf("Thursday");
+      break;
+    case 5:
+      printf("Friday");
+      break;
+    case 6:
+      printf("Saturday");
+      break;
+    case 7:
+      printf("Sunday");
+      break;
+  }
+    
+  return 0;
+}
+
+
+
+// 2. The switch statement with a default keyword
+
+#include <stdio.h>
+
+int main() {
+  int day = 4;
+  
+  switch (day) {
+  case 6:
+    printf("Today is Saturday");
+    break;
+  case 7:
+    printf("Today is Sunday");
+    break;
+  default:
+    printf("Looking forward to the Weekend");
   }
   
   return 0;
 }
 
 
-
-// 2. The else statement
-
-#include <stdio.h>
-
-int main() {
-  int time = 20;
-  
-  if (time < 18) {
-    printf("Good day.");
-  } else {
-    printf("Good evening.");
-  }
-  
-  return 0;
-}
-
-
-
-// 3. The else if statement
-
-#include <stdio.h>
-
-int main() {
-  int time = 16;
-
-  if (time < 12) {
-    printf("Good morning.");
-  } else if (time < 18) {
-    printf("Good day.");
-  } else {
-    printf("Good evening.");
-  }
-
-  return 0;
-}
-
-
-
-// 4. Short hand if...else (Ternary Operator)
-
-#include <stdio.h>
-
-int main() {
-  int time = 20;
-  
-  (time < 18) ? printf("Good day.") : printf("Good evening.");
-  
-  return 0;
-}
