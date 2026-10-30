@@ -1,74 +1,209 @@
-// 1. Create a pointer variable
+// 1. Create and call a function
 
 #include <stdio.h>
 
+// Create a function
+void myFunction() {
+  printf("I just got executed!");
+}
+
 int main() {
-  int myAge = 43;  // An int variable
-  int* ptr = &myAge;  // A pointer variable, with the name ptr, that stores the address of myAge
-
-  // Output the value of myAge (43)
-  printf("%d\n", myAge);
-
-  // Output the memory address of myAge (0x7ffe5367e044)
-  printf("%p\n", &myAge);
-
-  // Output the memory address of myAge with the pointer (0x7ffe5367e044)
-  printf("%p\n", ptr);
-
+  myFunction(); // call the function
   return 0;
 }
 
 
 
-
-// 2. Get the value of a variable with the dereference operator *
+// 2. Call a function multiple times
 
 #include <stdio.h>
 
+// Create a function
+void myFunction() {
+  printf("I just got executed!\n");
+}
+
 int main() {
-  int myAge = 43;  // Variable declaration
-  int* ptr = &myAge;  // Pointer declaration
-
-  // Reference: Output the memory address of myAge with the pointer (0x7ffe5367e044)
-  printf("%p\n", ptr);
-
-  // Dereference: Output the value of myAge with the pointer (43)
-  printf("%d\n", *ptr);
-  
+  myFunction(); // call the function
+  myFunction(); // call the function
+  myFunction(); // call the function
   return 0;
 }
 
 
 
-// 3. Access an array with pointers
+// 3. Function declaration and definition
 
 #include <stdio.h>
- 
+
+// Function declaration
+void myFunction();
+
+// The main function
 int main() {
-  int myNumbers[4] = {25, 50, 75, 100};
-  
-  // Get the value of the first element in myNumbers
-  printf("%d\n", *myNumbers);
-  
-  // Get the value of the second element in myNumbers
-  printf("%d", *(myNumbers + 1));
- 
+  myFunction();  // call the function
+  return 0;
+}
+
+// Function definition
+void myFunction() {
+  printf("I just got executed!");
+}
+
+
+
+// 4. Parameters and arguments
+
+#include <stdio.h>
+
+void myFunction(char name[]) {
+  printf("Hello %s\n", name);
+}
+
+int main() {
+  myFunction("Liam");
+  myFunction("Jenny");
+  myFunction("Anja");
   return 0;
 }
 
 
 
-// 4. Loop through an array using pointers
+// 5. Multiple parameters
 
 #include <stdio.h>
- 
-int main() {
-  int myNumbers[4] = {25, 50, 75, 100};
-  int *ptr = myNumbers;
-  int i;
 
-  for (i = 0; i < 4; i++) {
-    printf("%d\n", *(ptr + i));
+void myFunction(char name[], int age) {
+  printf("Hello %s. You are %d years old\n", name, age);
+}
+
+int main() {
+  myFunction("Liam", 3);
+  myFunction("Jenny", 14);
+  myFunction("Anja", 30);
+  return 0;
+}
+
+
+
+// 6. Pass arrays as function parameters
+
+#include <stdio.h>
+
+void myFunction(int myNumbers[5]) {
+  for (int i = 0; i < 5; i++) {
+    printf("%d\n", myNumbers[i]);
   }
+}
+
+int main() {
+  int myNumbers[5] = {10, 20, 30, 40, 50};  
+  myFunction(myNumbers);
+  return 0;
+}
+
+
+
+// 7. Return value
+
+#include <stdio.h>
+
+int myFunction(int x) {
+  return 5 + x;
+}
+
+int main() {
+  printf("Result is: %d", myFunction(3));
+  return 0;
+}
+
+
+
+// 8. Return the sum of two parameters
+
+#include <stdio.h>
+
+int myFunction(int x, int y) {
+  return x + y;
+}
+
+int main() {
+  printf("Result is: %d", myFunction(5, 3));
+  return 0;
+}
+
+
+
+// 9. Local scope
+
+#include <stdio.h>
+
+void myFunction() {
+  // Local variable that belongs to myFunction
+  int x = 5;
+
+  // Print the variable x
+  printf("%d", x);
+}
+
+int main() {
+  myFunction();
+  return 0;
+}
+
+
+
+// 10. Global scope
+
+#include <stdio.h>
+
+// Global variable x
+int x = 5;
+
+void myFunction() {
+  // We can use x here
+  printf("%d\n", x);
+}
+
+int main() {
+  myFunction();
+
+  // We can also use x here
+  printf("%d\n", x);
+  return 0;
+}
+
+
+
+// 11. Recursion (make a function call itself)
+
+#include <stdio.h>
+
+int sum(int k);
+
+int main() {
+  int result = sum(10);
+  printf("%d", result);
+  return 0;
+}
+
+int sum(int k) {
+  if (k > 0) {
+    return k + sum(k - 1);
+  } else {
+    return 0;
+  }
+}
+
+
+
+
+// 12. Use a math function to get the square root of a number
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+  printf("%f", sqrt(16));
   return 0;
 }
