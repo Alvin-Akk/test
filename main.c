@@ -1,79 +1,61 @@
-// 1. Create an integer variable and print it
+// 1. A demonstration of different data types and format specifiers
 
 #include <stdio.h>
 
 int main() {
-  int myNum = 15;
-  printf("%d", myNum);
-  return 0;
-}
-
-
-
-// 2. Combine both text and a variable
-
-#include <stdio.h>
-
-int main() {
-  int myNum = 15;
-  printf("My favorite number is: %d", myNum);
-  return 0;
-}
-
-
-
-// 3. Change/overwrite variable values
-
-#include <stdio.h>
-
-int main() {
-  int myNum = 15; // myNum is 15
-  myNum = 10; // Now myNum is 10
+  // Create variables
+  int myNum = 5;               // Integer (whole number)
+  float myFloatNum = 5.99;     // Floating point number
+  char myLetter = 'D';         // Character
   
-  printf("%d", myNum);
+  // Print variables
+  printf("%d\n", myNum);
+  printf("%f\n", myFloatNum);
+  printf("%c\n", myLetter);
   return 0;
 }
 
 
 
-// 4. Add a variable to another variable
+// 2. Set decimal precision for floating point values
 
 #include <stdio.h>
 
 int main() {
-  int x = 5;
-  int y = 6;
-  int sum = x + y;
-  printf("%d", sum);
+  float myFloatNum = 3.5;
+
+  printf("%f\n", myFloatNum); // Default will show 6 digits after the decimal point
+  printf("%.1f\n", myFloatNum); // Only show 1 digit
+  printf("%.2f\n", myFloatNum); // Only show 2 digits
+  printf("%.4f", myFloatNum);   // Only show 4 digits
   return 0;
 }
 
 
 
-// 5. Declare many variables of the same type with a comma-separated list
+// 3. Implicit / Automatic conversion (convert an int to a float)
 
 #include <stdio.h>
 
 int main() {
-  int x = 5, y = 6, z = 50;
-  printf("%d", x + y + z);
+  // Automatic conversion: int to float
+  float myFloat = 9;
+
+  printf("%f", myFloat);
   return 0;
 }
 
 
 
-// 6. Assign the same value to multiple variables of the same type
+// 4. Explicit / Manual conversion (convert an int to a float)
 
 #include <stdio.h>
 
 int main() {
-  int x, y, z;
-  x = y = z = 50;
-  printf("%d", x + y + z);
+  int num1 = 5;
+  int num2 = 2;
+  float result = (float) num1 / num2;
+
+  printf("%.1f", result);
   return 0;
 }
-
-
-
-
-
